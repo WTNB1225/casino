@@ -1,0 +1,8 @@
+{
+  "name": "casino",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:WTNB1225/casino.git",
+  "author": "WTNB1225 <144193938+WTNB1225@users.noreply.github.com>",
+  "license": "MIT"
+}

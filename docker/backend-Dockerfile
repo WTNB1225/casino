@@ -1,0 +1,5 @@
+FROM golang:1.23
+WORKDIR /backend
+COPY ../backend/go.mod ../backend/go.sum ../backend/main.go ./
+COPY ../backend ./
+EXPOSE 3030

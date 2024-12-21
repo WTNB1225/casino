@@ -37,8 +37,8 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <div className="border relative h-[calc(100vh-3.6rem)] bg-gray-400">
-          <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+        <div className="border relative min-h-[100vh] bg-gray-400">
+          <div className="container flex-1 items-start md:grid md:grid-cols-[200px_minmax(0,1fr)] lg:grid-cols-[200px_minmax(0,1fr)]">
             <Sidebar />
             <main className="col-start-2 flex-1 overflow-auto">
               {children}

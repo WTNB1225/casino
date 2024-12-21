@@ -1,0 +1,4 @@
+.grid-auto-columns {
+    display: grid;
+    grid-auto-columns: calc(33.33% - 0.6875rem);
+}

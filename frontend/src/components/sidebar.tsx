@@ -12,135 +12,82 @@ export default function Sidebar() {
   const isMobile = width < 768;
 
   return (
-<div className="z-50 h-full w-[240px]">
-  <div className="header flex touch-none h-[60px]">
-    <button className="flex justify-center items-center cursor-pointer min-w-12 min-h-12">
-      <Image src={bars} width={20} height={20} alt="img" priority />
-    </button>
-    <div className="flex justify-center items-center gap-2 w-full">
-      <a href="/casino" className="w-[78px] flex justify-center">Casino</a>
-      <a href="/sports" className="w-[78px] flex justify-center">Sports</a>
+    <div className={`z-50 h-full w-[240px] pl-3 bg-gray-800 text-white hidden md:block`}>
+      <div className="header flex touch-none h-[60px]">
+        <div className="flex justify-start items-center gap-1 w-full">
+          <a href="/casino" className="w-[78px] flex justify-center">Casino</a>
+          <a href="/sports" className="w-[78px] flex justify-center">Sports</a>
+        </div>
+      </div>
+      <div className="content h-[calc(100vh-60px)] overscroll-contain pr-6 flex flex-col gap-2 overflow-y-auto overflow-x-hidden">
+        <div className="sidebar-content">
+          <div>
+            <div>
+              <a className="flex flex-col p-3" href="#">Top Sports</a>
+            </div>
+            <div>
+              <hr className="h-[2px] w-full pb-2" />
+            </div>
+            <div>
+              <div className="sidebar-text">
+                Soccer
+              </div>
+            </div>
+            <div>
+              <div className="sidebar-text">
+                American Football
+              </div>
+            </div>
+            <div className="sidebar-text">
+              <div>
+                Basketball
+              </div>
+            </div>
+            <div>
+              <div className="sidebar-text">
+                Criket
+              </div>
+            </div>
+            <div>
+              <div className="sidebar-text">
+                Racing
+              </div>
+            </div>
+            <div className="sidebar-text">
+              <div>
+                Tennis
+              </div>
+            </div>
+            <div>
+              <div className="sidebar-text">
+                Darts
+              </div>
+            </div>
+            <div className="sidebar-text">
+              <div>
+                Ice Hockey
+              </div>
+            </div>
+            <div>
+              <div className="sidebar-text">
+                Kabaddi
+              </div>
+            </div>
+            <div className="sidebar-text">
+              <div>
+                Volleyball
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="sidebar-content">
+          <div className="">
+            <div className="flex flex-col p-3">
+              All Sports
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div className="content h-[calc(100vh-60px)] overscroll-contain pr-6 flex flex-col gap-2 overflow-y-auto overflow-x-hidden">
-    <div className="pl-6">hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-    <div>hogehoge</div>
-  </div>
-</div>
   );
 }

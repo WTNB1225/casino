@@ -31,20 +31,20 @@ export default async function RootLayout({
   const current_url = headerList.get("x-url");
   console.log(current_url);
   return (
-    <SidebarProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="wrapper flex w-full h-full overflow-hidden">
-          <Sidebar />
-          <div className="main-content flex w-full h-full flex-col overflow-hidden">
-            <Navbar />
-            <div className="content">{children}</div>
-          </div>
-        </div>
-      </body>
-    </html>
-    </SidebarProvider>
+      <SidebarProvider>
+        <html lang="en">
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-700 text-white`}
+          >
+            <div className="wrapper flex w-full h-[100vh] overflow-hidden">
+              <Sidebar />
+              <div className="main-content flex w-full h-full flex-col overflow-hidden">
+                <Navbar />
+                <div className="content">{children}</div>
+              </div>
+            </div>
+          </body>
+        </html>
+      </SidebarProvider>
   );
 }

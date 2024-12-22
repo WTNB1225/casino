@@ -36,13 +36,11 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="border relative min-h-[100vh] bg-gray-400">
-          <div className="container flex-1 items-start md:grid md:grid-cols-[200px_minmax(0,1fr)] lg:grid-cols-[200px_minmax(0,1fr)]">
-            <Sidebar />
-            <main className="col-start-2 flex-1 overflow-auto">
-              {children}
-            </main>
+        <div className="wrapper flex w-full h-full overflow-hidden">
+          <Sidebar />
+          <div className="main-content flex w-full h-full flex-col overflow-hidden">
+            <Navbar />
+            <div className="content">{children}</div>
           </div>
         </div>
       </body>

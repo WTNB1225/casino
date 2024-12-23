@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"fmt"
 	"net/http"
 	"time"
 	"github.com/WTNB1225/casino/backend/model"
@@ -18,7 +17,7 @@ var users []model.User
 var userRequest request.UserRequest
 
 func OpenDB() (*gorm.DB, error) {
-	dsn := "host=172.17.0.3 user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Tokyo"
+	dsn := "host=172.17.0.2 user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Tokyo"
 	var err error
 	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
@@ -33,7 +32,6 @@ func ListUsers(c echo.Context) error {
 	if err := DB.Find(&users).Error; err != nil {
 		return c.JSON(http.StatusBadRequest, err)
 	}
-	fmt.Println(users)
 	return c.JSON(http.StatusOK, users)
 }
 
@@ -51,7 +49,6 @@ func CreateUser(c echo.Context) error {
 	}
 
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(userRequest.Password), bcrypt.DefaultCost)
-	fmt.Println(hashedPassword)
 
 	userRecord := model.User {
 		UserName: userRequest.UserName,

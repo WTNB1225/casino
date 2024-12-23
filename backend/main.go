@@ -1,15 +1,32 @@
 package main
 
 import (
-	"net/http"
 	"github.com/labstack/echo/v4"
-	"./handler"
+	"github.com/labstack/echo/v4/middleware"
+	"github.com/WTNB1225/casino/backend/handler"
 )
 
 func main() {
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
+	
+	// setting middleware
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
+	// connect to db
+	db, err := handler.OpenDB()
+	if err != nil {
+		e.Logger.Fatal(err)
+	}
+	handler.DB = db
+
+	// routing
+	e.GET("/users", handler.ListUsers)
+	e.GET("/users/:id", handler.GetUser)
+	e.POST("/users", handler.CreateUser)
+	e.PUT("/users/:id", handler.UpdateUser)
+	e.DELETE("/users/:id", handler.DeleteUser)
+
+	//start server
 	e.Logger.Fatal(e.Start(":3030"))
 }

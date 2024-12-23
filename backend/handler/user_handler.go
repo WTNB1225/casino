@@ -1,17 +1,21 @@
 package handler
 
 import (
+	"fmt"
 	"net/http"
+	"time"
+	"github.com/WTNB1225/casino/backend/model"
+	"github.com/WTNB1225/casino/backend/request"
 	"github.com/labstack/echo/v4"
+	"golang.org/x/crypto/bcrypt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"github.com/WTNB1225/casino/backend/model"
-	"fmt"
 )
 
 var DB *gorm.DB
 var user model.User
 var users []model.User
+var userRequest request.UserRequest
 
 func OpenDB() (*gorm.DB, error) {
 	dsn := "host=172.17.0.2 user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Tokyo"
@@ -20,8 +24,10 @@ func OpenDB() (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
+	DB.AutoMigrate(&model.User{})
 	return DB, nil
 }
+
 func ListUsers(c echo.Context) error {
 	if err := DB.Find(&users).Error; err != nil {
 		return c.JSON(http.StatusBadRequest, err)
@@ -31,11 +37,32 @@ func ListUsers(c echo.Context) error {
 }
 
 func GetUser(c echo.Context) error {
-	return c.JSON(http.StatusOK, "GetUser")
+	userId := c.Param("id")
+	if err := DB.First(&user, userId).Error; err != nil {
+		return c.JSON(http.StatusBadRequest, err)
+	}
+	return c.JSON(http.StatusOK, user)
 }
 
 func CreateUser(c echo.Context) error {
-	return c.JSON(http.StatusOK, "CreateUser")
+	err := c.Bind(&userRequest); if err != nil {
+		return c.JSON(http.StatusBadRequest, err)
+	}
+
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(userRequest.Password), bcrypt.DefaultCost)
+	fmt.Println(hashedPassword)
+
+	userRecord := model.User {
+		UserName: userRequest.UserName,
+		Email: userRequest.Email,
+		HashedPassword: string(hashedPassword),
+		CreatedAt: time.Now(),
+	}
+
+	if err := DB.Create(&userRecord).Error; err != nil {
+		return c.JSON(http.StatusBadRequest, err)
+	}
+	return c.JSON(http.StatusOK, userRecord)
 }
 
 func UpdateUser(c echo.Context) error {

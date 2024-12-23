@@ -5,7 +5,7 @@ import (
 )
 
 type Bet struct {
-	ID int `gorm:"primary_key"`
+	ID int `gorm:"primary_key,unique"`
 	UserID int
 	Status bool
 	Stake int

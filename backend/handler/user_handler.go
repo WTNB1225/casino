@@ -24,6 +24,7 @@ func OpenDB() (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
+	DB.Migrator().DropTable(&model.User{})
 	DB.AutoMigrate(&model.User{})
 	return DB, nil
 }

@@ -18,7 +18,7 @@ var users []model.User
 var userRequest request.UserRequest
 
 func OpenDB() (*gorm.DB, error) {
-	dsn := "host=172.17.0.2 user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Tokyo"
+	dsn := "host=172.17.0.3 user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Tokyo"
 	var err error
 	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {

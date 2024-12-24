@@ -23,7 +23,7 @@ func OpenDB() (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	DB.Migrator().DropTable(&model.User{})
+	//DB.Migrator().DropTable(&model.User{})
 	DB.AutoMigrate(&model.User{}, &model.Bet{})
 	return DB, nil
 }

@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: false,
   images: {
     domains: ["picsum.photos"],
+  },
+  experimental: {
+    serverActions: {
+      allowedOrigins: ["http://localhost:3030"],
+    },
   }
 };
 

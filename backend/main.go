@@ -20,6 +20,7 @@ func main() {
 	// setting middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.CORS())
 
 	// connect to db
 	db, err := handler.OpenDB()
